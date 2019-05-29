@@ -5,8 +5,61 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CalculatorDeliverables"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        
+        Title="MainWindow" Height="477" Width="700" SizeToContent="WidthAndHeight" >
+    <Grid Margin="-117,-33,-156,-68" RenderTransformOrigin="0.421,0.353" Height="487" VerticalAlignment="Top">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="451"/>
+            <ColumnDefinition Width="94"/>
+            <ColumnDefinition Width="371"/>
+            <ColumnDefinition Width="0"/>
+            <ColumnDefinition Width="0*"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Button Content="7" x:Name="btn7" HorizontalAlignment="Left" Margin="282,250,0,0" VerticalAlignment="Top" Width="75" Height="20" Click="BtnNums_On_Click" />
+        <Button Content="8" x:Name="btn8" HorizontalAlignment="Left" Margin="367,249,0,0" VerticalAlignment="Top" Width="74" Height="20" Click="BtnNums_On_Click" />
+        <Button Content="9" x:Name="btn9" HorizontalAlignment="Left" Margin="9,250,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="2.14,0.375" Height="20" Grid.Column="1" Click="BtnNums_On_Click" />
+        <Button Content="*" x:Name="btnMultiply" HorizontalAlignment="Left" Margin="10,249,0,0" VerticalAlignment="Top" Width="76" Height="20" Grid.Column="2" Click="BtnOperators_On_Click"  />
+        <Button Content="4" x:Name="btn4" HorizontalAlignment="Left" Margin="282,285,0,0" VerticalAlignment="Top" Width="75" Height="20" Click="BtnNums_On_Click" />
+        <Button Content="5" x:Name="btn5" HorizontalAlignment="Left" Margin="365,283,0,0" VerticalAlignment="Top" Width="74" Height="20" Click="BtnNums_On_Click" />
+        <Button Content="6" x:Name="btn6" HorizontalAlignment="Left" Margin="9,285,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="2.14,0.375" Height="20" Grid.Column="1" Click="BtnNums_On_Click" />
+        <Button Content="-" x:Name="btnNeg" HorizontalAlignment="Left" Margin="10,283,0,0" VerticalAlignment="Top" Width="76" Height="20" Grid.Column="2" Click="BtnOperators_On_Click" />
+        <Button Content="1" x:Name="btn1" HorizontalAlignment="Left" Margin="282,317,0,0" VerticalAlignment="Top" Width="75" Height="20" Click="BtnNums_On_Click" />
+        <Button Content="2" x:Name="btn2" HorizontalAlignment="Left" Margin="365,317,0,0" VerticalAlignment="Top" Width="74" Height="20" Click="BtnNums_On_Click" />
+        <Button Content="3" x:Name="btn3" HorizontalAlignment="Left" Margin="9,317,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="2.14,0.375" Height="20" Grid.Column="1" Click="BtnNums_On_Click" />
+        <Button Content="+" x:Name="btnPos" HorizontalAlignment="Left" Margin="10,317,0,0" VerticalAlignment="Top" Width="76" Height="20" Grid.Column="2" Click="BtnOperators_On_Click" />
+        <!--<Button Content="+-" x:Name="btnPosNeg" HorizontalAlignment="Left" Margin="282,353,0,0" VerticalAlignment="Top" Width="75" Height="20"/>-->
+        <Button Content="0" x:Name="btn0" HorizontalAlignment="Left" Margin="365,351,0,0" VerticalAlignment="Top" Width="74" Height="20" Click="BtnNums_On_Click" />
+        <Button Content="." x:Name="btnPoint" HorizontalAlignment="Left" Margin="10,350,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="2.14,0.375" Height="20" Grid.Column="1" Click="BtnNums_On_Click" />
+        <Button Content="=" x:Name="btnEqual" HorizontalAlignment="Left" Margin="10,351,0,0" VerticalAlignment="Top" Width="76" Height="20" Grid.Column="2"/>
+        <!--<Button Content="CE" HorizontalAlignment="Left" Margin="282,179,0,0" VerticalAlignment="Top" Width="75" Height="20"/>-->
+        <Button Content="C" x:Name="btnClear" HorizontalAlignment="Left" Margin="367,214,0,0" VerticalAlignment="Top" Width="74" Height="20"/>
+        <Button Content="&lt;=" x:Name="btnBackspace" HorizontalAlignment="Left" Margin="9,214,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="2.14,0.375" Height="20" Grid.Column="1"/>
+        <Button Content="%" x:Name="btnPercentage" HorizontalAlignment="Left" Margin="282,351,0,0" VerticalAlignment="Top" Width="75" Height="20" Click="BtnOperators_On_Click" />
+        <Button Content="/" x:Name="btnDivide" HorizontalAlignment="Left" Margin="9,213,0,0" VerticalAlignment="Top" Width="76" Height="20" Grid.Column="2" Click="BtnOperators_On_Click" />
+        <Button Content="Root" x:Name="buttonRoot" HorizontalAlignment="Left" Margin="10,181,0,0" VerticalAlignment="Top" Width="74" Height="20" Grid.Column="1" />
+        <Button Content="Square" x:Name="btnSquare" HorizontalAlignment="Left" Margin="282,182,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="2.14,0.375" Height="20"/>
+        <Button Content="Inverse" x:Name="btnInverse" HorizontalAlignment="Left" Margin="366,181,0,0" VerticalAlignment="Top" Width="76" Height="20"/>
+        <!--<Button Content="MC" HorizontalAlignment="Left" Margin="192,137,0,0" VerticalAlignment="Top" Width="75" Height="20"/>
+        <Button Content="MR" HorizontalAlignment="Left" Margin="284,136,0,0" VerticalAlignment="Top" Width="74" Height="20"/>
+        <Button Content="M+" HorizontalAlignment="Left" Margin="366,137,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="2.14,0.375" Height="20"/>
+        <Button Content="M-" HorizontalAlignment="Left" Margin="10,138,0,0" VerticalAlignment="Top" Width="76" Height="20" Grid.Column="1"/>
+        <Button Content="MS" HorizontalAlignment="Left" Margin="104,137,0,0" VerticalAlignment="Top" Width="76" Height="20" Grid.Column="1"/>
+        <Button Content="M down" HorizontalAlignment="Left" Margin="209,136,0,0" VerticalAlignment="Top" Width="76" Height="20" Grid.Column="1"/>-->
+
+        <Border BorderThickness="2" BorderBrush="Black" Margin="254,118,238,321" RenderTransformOrigin="0.52,0.5" Grid.ColumnSpan="3">
+            <Border.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="-0.311"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Border.RenderTransform>
+            <TextBlock x:Name="CalcInput" Margin="2,2,14,0" TextWrapping="Wrap" TextAlignment="Right" Text="0" FontSize="28" RenderTransformOrigin="0.5,1.021" Grid.ColumnSpan="2" Background="White" Height="40" VerticalAlignment="Top" />
+        </Border>
+
+        <Border BorderBrush="Blue" BorderThickness="1.5" Margin="254,64,238,373" Grid.ColumnSpan="3">
+            <TextBlock x:Name="CalcDisplay" FontSize="26" Background="Azure" FontWeight="Light" Margin="229,0,266,610" Grid.ColumnSpan="2"></TextBlock>
+        </Border>
     </Grid>
 </Window>
