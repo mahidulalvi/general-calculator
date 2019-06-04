@@ -28,6 +28,8 @@ namespace CalculatorDeliverables
         public bool OperatorAllowed { get; set; }
         public bool ResultShowingInCalcInput { get; set; }
         public bool IsCalcInResetState { get; set; }
+        public bool InputHasRoot { get; set; }
+        public bool InputHasFactorial { get; set; }
 
         public MainWindow()
         {
@@ -36,27 +38,40 @@ namespace CalculatorDeliverables
             InputNumbers = new List<decimal>();
             Result = 0;
             Operator = "";
-            OperatorAllowed = false;
             ResultShowingInCalcInput = true;
             IsCalcInResetState = true;
-        }        
+            InputHasRoot = false;
+            InputHasFactorial = false;
+        }
 
         private void BtnNums_On_Click(object sender, RoutedEventArgs e)
         {
             Button button = e.Source as Button;
-            if(button != null)
+            if (button != null)
             {
-                if(button.Content.ToString() == ".")
+                if (button.Content.ToString() == ".")
                 {
-                    if (!BasicHelper.InputHasDecimal(CalcInput.Text) && ResultShowingInCalcInput == false)
-                    {                     
+                    if (!BasicHelper.InputHasDecimal(CalcInput.Text) && !ResultShowingInCalcInput)
+                    {
                         CalcInput.Text += button.Content;
-                        OperatorAllowed = true;                        
                     }
-                }    
+                    else if (IsCalcInResetState && ResultShowingInCalcInput)
+                    {
+                        CalcDisplay.Text = "";
+                        CalcInput.Text = "0";
+
+                        CalcInput.Text += button.Content;
+                    }
+                    else if (ResultShowingInCalcInput)
+                    {
+                        CalcInput.Text = "0";
+
+                        CalcInput.Text += button.Content;
+                    }
+                }
                 else
                 {
-                    if(ResultShowingInCalcInput/* || IsCalcInResetState*/)
+                    if (ResultShowingInCalcInput)
                     {
                         CalcInput.Text = "";
                     }
@@ -69,14 +84,28 @@ namespace CalculatorDeliverables
 
                         CalcInput.Text = "";
                         CalcInput.Text = textWithoutLeadingZero;
-                        OperatorAllowed = true;                        
                     }
                     else
                     {
                         CalcInput.Text += button.Content;
-                        OperatorAllowed = true;                        
                     }
                 }
+
+                if (IsCalcInResetState)
+                {
+                    CalcDisplay.Text = "";
+                }
+
+                if(button.Content.ToString() == "√")
+                {
+                    InputHasRoot = true;
+                }
+
+                if(button.Content.ToString() == "!")
+                {
+                    InputHasFactorial = true;
+                }
+
                 ResultShowingInCalcInput = false;
                 IsCalcInResetState = false;
             }
@@ -87,9 +116,10 @@ namespace CalculatorDeliverables
         private void BtnOperators_On_Click(object sender, RoutedEventArgs e)
         {
             Button button = e.Source as Button;
-            if (button != null && OperatorAllowed)
-            {                
-                if (BasicHelper.InputHasLeadingZeroWithoutDecimals(CalcInput.Text))
+            if (button != null)
+            {
+                //When the user inputs too many leading zeroes, this if function trims them
+                if (BasicHelper.InputHasLeadingZeroWithoutDecimals(CalcInput.Text) && !IsCalcInResetState)
                 {
                     var totalLeadingZeroes = BasicHelper.NumberOfLeadingZeroes(CalcInput.Text);
 
@@ -97,32 +127,74 @@ namespace CalculatorDeliverables
                     CalcInput.Text = textWithoutLeadingZero;
                 }
 
-                var inputText = CalcInput.Text;
-                var inputTextConvertedToDecimal = Convert.ToDecimal(inputText);
-
-                if (Operator != "-")
+                //Checking to see if Calculator has been reseted
+                string inputText;
+                if (IsCalcInResetState)
                 {
-                    CalcDisplay.Text += inputText;
+                    CalcInput.Text = "0";
+                    CalcDisplay.Text = "";
                 }
 
+                if (CalcInput.Text.Contains("√"))
+                {
+                    inputText = BasicHelper.ConvertNumberToRoot(CalcInput.Text).ToString();
+                }
+                else if (CalcInput.Text.Contains("!"))
+                {
+                    inputText = BasicHelper.DetermineFactorial(CalcInput.Text).ToString();
+                }
+                else
+                {
+                    inputText = CalcInput.Text;
+                }
+                var inputTextConvertedToDecimal = Convert.ToDecimal(inputText);
+
+
+                CalcDisplay.Text += inputText + " ";
+
+
                 InputNumbers.Add(inputTextConvertedToDecimal);
-                CalcDisplay.Text += " " + button.Content + " ";
+                if (button.Content.ToString() != "=")
+                {
+                    CalcDisplay.Text += " " + button.Content + " ";
+                }
+                
 
                 if (InputNumbers.Count() > 1)
                 {
-                    Result = BasicHelper.DetermineOperatorAndCalculate(Operator, Result, inputTextConvertedToDecimal);
+                    if(InputHasRoot == true)
+                    {
+                        Result = BasicHelper.DetermineOperatorAndCalculate(Operator, Result, inputTextConvertedToDecimal);
+                    }
+                    else
+                    {
+                        Result = BasicHelper.DetermineOperatorAndCalculate(Operator, Result, inputTextConvertedToDecimal);
+                    }
+
 
                     CalcInput.Text = $"{Result}";
                     ResultShowingInCalcInput = true;
                 }
-                else if(InputNumbers.Count() > 0 && InputNumbers.Count() < 2)
+                else if (InputNumbers.Count() > 0 && InputNumbers.Count() < 2)
                 {
                     Result += InputNumbers[0];
                     ResultShowingInCalcInput = true;
                 }
 
-                Operator = button.Content.ToString();
+                if (button.Content.ToString() != "=")
+                {
+                    Operator = button.Content.ToString();
+                    IsCalcInResetState = false;                    
+                }
+                else
+                {
+                    InputNumbers = new List<decimal>();
+                    Result = 0;
+                    Operator = "";
+                    ResultShowingInCalcInput = true;
+                    IsCalcInResetState = true;
+                }
             }
-        }                                     
+        }
     }
 }
