@@ -47,6 +47,19 @@ namespace CalculatorDeliverables.Helpers
             return true;
         }
 
+
+        public bool ValidateInputOfZero(string input)
+        {
+            if(input == "0")
+            {
+                return false;
+            }
+
+            return true;
+        }
+
+
+
         public bool InputHasLeadingZeroWithoutDecimals(string input)
         {
             if (input.StartsWith("0") && !InputHasDecimal(input))
@@ -78,8 +91,10 @@ namespace CalculatorDeliverables.Helpers
             }
 
             return result;
-        }
+        }        
 
+
+        //√√√
         public bool InputHasDecimal(string input)
         {
             if (input.Contains("."))
@@ -90,8 +105,10 @@ namespace CalculatorDeliverables.Helpers
             return false;
         }
 
-        public decimal DetermineOperatorAndCalculate(string input, decimal referenceNumber, decimal latestInput)
+        public double? DetermineOperatorAndCalculate(string input, double? referenceNumber, double latestInput)
         {
+            var referenceNumberInDouble = Convert.ToDouble(referenceNumber);
+
             if (input == "+")
             {
                 return referenceNumber += latestInput;
@@ -106,10 +123,17 @@ namespace CalculatorDeliverables.Helpers
             }
             else if (input == "/")
             {
-                return referenceNumber / latestInput;
+                if(latestInput != 0)
+                {
+                    return referenceNumber / latestInput;
+                }
+                else
+                {
+                    return null;
+                }
             }
             else if (input == "%")
-            {
+            {                
                 return referenceNumber % latestInput;
             }
             else if (input == "^")
@@ -119,9 +143,20 @@ namespace CalculatorDeliverables.Helpers
 
                 var finalResult = Math.Pow(baseNumber, power);
 
-                var finalResultInDecimal = Convert.ToDecimal(finalResult);
+                //var finalResultInDecimal = Convert.ToDecimal(finalResult);
 
-                return finalResultInDecimal;
+                return finalResult/*InDecimal*/;
+            }
+            else if (input == "^-")
+            {
+                var baseNumber = Convert.ToDouble(referenceNumber);
+                var power = Convert.ToDouble(latestInput);
+
+                var finalResult = Math.Pow(baseNumber, (power * -1));
+
+                //var finalResultInDecimal = Convert.ToDecimal(finalResult);
+
+                return finalResult/*InDecimal*/;
             }
             //else if(input == "")
             //{
@@ -136,7 +171,7 @@ namespace CalculatorDeliverables.Helpers
         }
 
 
-        public decimal ConvertNumberToRoot(string number)
+        public double ConvertNumberToRoot(string number)
         {
             var indexOfRoot = number.IndexOf('√');
             var numberWithRoot = number.Substring(indexOfRoot + 1);
@@ -145,19 +180,62 @@ namespace CalculatorDeliverables.Helpers
 
             var numberToBeRooted = Convert.ToDouble(numberWithRoot);
             var finalResult = Math.Sqrt(numberToBeRooted);
-            var finalResultInDecimal = Convert.ToDecimal(finalResult);
+            //var finalResultInDecimal = Convert.ToDecimal(finalResult);
 
-            decimal numberWithoutRoot;
+            double numberWithoutRoot;
             string numberWithoutRootAsString;
             if (indexOfRoot != 0)
             {
                 numberWithoutRootAsString = number.Substring(0, indexOfRoot);
-                numberWithoutRoot = Convert.ToDecimal(numberWithoutRootAsString);
+                numberWithoutRoot = Convert.ToDouble(numberWithoutRootAsString);
 
-                return finalResultInDecimal *= numberWithoutRoot;
+                return finalResult *= numberWithoutRoot;
             }
 
-            return finalResultInDecimal;
+            return finalResult;
+        }
+
+
+        public bool CheckIfANumberExistsBefore(string input)
+        {
+            if(string.IsNullOrEmpty(input))
+            {
+                return false;
+            }
+            else
+            {
+                char lastChar = input[input.Length - 1];
+
+                if (Char.IsDigit(lastChar))
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+        }
+
+        public bool ValidateSqrtInput(string input)
+        {
+            if (input == "")
+            {
+                return true;
+            }
+            else
+            {
+                char lastChar = input[input.Length - 1];
+
+                if (Char.IsDigit(lastChar))
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
         }
 
 

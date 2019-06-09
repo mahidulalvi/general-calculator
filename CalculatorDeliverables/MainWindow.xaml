@@ -5,11 +5,11 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CalculatorDeliverables"
         mc:Ignorable="d"
-        Title="MainWindow" Height="477" Width="700" SizeToContent="WidthAndHeight" >
+        Title="MainWindow" Height="655" Width="719" SizeToContent="WidthAndHeight" >
 
     <TabControl>
         <TabItem Header="Calculator">
-            <Grid Margin="-117,-33,-156,-68" RenderTransformOrigin="0.421,0.353" Height="487" VerticalAlignment="Top">
+            <Grid Margin="-117,-33,-156,-68" RenderTransformOrigin="0.421,0.353" Height="631" VerticalAlignment="Top">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="451"/>
                     <ColumnDefinition Width="94"/>
@@ -19,31 +19,30 @@
                     <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
 
-                <Button Content="7" x:Name="btn7" HorizontalAlignment="Left" Margin="282,250,0,0" VerticalAlignment="Top" Width="75" Height="20" Click="BtnNums_On_Click" />
-                <Button Content="8" x:Name="btn8" HorizontalAlignment="Left" Margin="367,249,0,0" VerticalAlignment="Top" Width="74" Height="20" Click="BtnNums_On_Click" />
-                <Button Content="9" x:Name="btn9" HorizontalAlignment="Left" Margin="9,250,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="2.14,0.375" Height="20" Grid.Column="1" Click="BtnNums_On_Click" />
-                <Button Content="*" x:Name="btnMultiply" HorizontalAlignment="Left" Margin="10,249,0,0" VerticalAlignment="Top" Width="76" Height="20" Grid.Column="2" Click="BtnOperators_On_Click"  />
-                <Button Content="4" x:Name="btn4" HorizontalAlignment="Left" Margin="282,285,0,0" VerticalAlignment="Top" Width="75" Height="20" Click="BtnNums_On_Click" />
-                <Button Content="5" x:Name="btn5" HorizontalAlignment="Left" Margin="365,283,0,0" VerticalAlignment="Top" Width="74" Height="20" Click="BtnNums_On_Click" />
-                <Button Content="6" x:Name="btn6" HorizontalAlignment="Left" Margin="9,285,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="2.14,0.375" Height="20" Grid.Column="1" Click="BtnNums_On_Click" />
-                <Button Content="-" x:Name="btnNeg" HorizontalAlignment="Left" Margin="10,283,0,0" VerticalAlignment="Top" Width="76" Height="20" Grid.Column="2" Click="BtnOperators_On_Click" />
-                <Button Content="1" x:Name="btn1" HorizontalAlignment="Left" Margin="282,317,0,0" VerticalAlignment="Top" Width="75" Height="20" Click="BtnNums_On_Click" />
-                <Button Content="2" x:Name="btn2" HorizontalAlignment="Left" Margin="365,317,0,0" VerticalAlignment="Top" Width="74" Height="20" Click="BtnNums_On_Click" />
-                <Button Content="3" x:Name="btn3" HorizontalAlignment="Left" Margin="9,317,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="2.14,0.375" Height="20" Grid.Column="1" Click="BtnNums_On_Click" />
-                <Button Content="+" x:Name="btnPos" HorizontalAlignment="Left" Margin="10,317,0,0" VerticalAlignment="Top" Width="76" Height="20" Grid.Column="2" Click="BtnOperators_On_Click" />
-                <Button Content="0" x:Name="btn0" HorizontalAlignment="Left" Margin="365,351,0,0" VerticalAlignment="Top" Width="74" Height="20" Click="BtnNums_On_Click" />
-                <Button Content="." x:Name="btnPoint" HorizontalAlignment="Left" Margin="10,350,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="2.14,0.375" Height="20" Grid.Column="1" Click="BtnNums_On_Click" />
-                <Button Content="=" x:Name="btnEqual" HorizontalAlignment="Left" Margin="10,351,0,0" VerticalAlignment="Top" Width="76" Height="20" Grid.Column="2" Click="BtnOperators_On_Click" />
-                <Button Content="C" x:Name="btnClear" HorizontalAlignment="Left" Margin="367,214,0,0" VerticalAlignment="Top" Width="74" Height="20"/>
-                <Button Content="&lt;=" x:Name="btnBackspace" HorizontalAlignment="Left" Margin="9,214,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="2.14,0.375" Height="20" Grid.Column="1"/>
-                <Button Content="%" x:Name="btnPercentage" HorizontalAlignment="Left" Margin="282,351,0,0" VerticalAlignment="Top" Width="75" Height="20" Click="BtnOperators_On_Click" />
-                <Button Content="/" x:Name="btnDivide" HorizontalAlignment="Left" Margin="9,213,0,0" VerticalAlignment="Top" Width="76" Height="20" Grid.Column="2" Click="BtnOperators_On_Click" />
-                <Button Content="√" x:Name="buttonRoot" HorizontalAlignment="Left" Margin="10,181,0,0" VerticalAlignment="Top" Width="74" Height="20" Grid.Column="1" Click="BtnNums_On_Click" />
-                <Button Content="Square" x:Name="btnSquare" HorizontalAlignment="Left" Margin="281,181,0,0" VerticalAlignment="Top" Width="76" RenderTransformOrigin="2.14,0.375" Height="20"/>
-                <Button Content="Inverse" x:Name="btnInverse" HorizontalAlignment="Left" Margin="366,181,0,0" VerticalAlignment="Top" Width="76" Height="20"/>
-                <Button Content="!" x:Name="btnModulus" HorizontalAlignment="Left" Margin="282,214,0,0" VerticalAlignment="Top" Width="76" RenderTransformOrigin="2.14,0.375" Height="20" Click="BtnNums_On_Click" />
+                <Button Content="7" x:Name="btn7" HorizontalAlignment="Left" Margin="299,408,0,0" VerticalAlignment="Top" Width="75" Height="20" Click="BtnNums_On_Click" />
+                <Button Content="8" x:Name="btn8" HorizontalAlignment="Left" Margin="384,407,0,0" VerticalAlignment="Top" Width="74" Height="20" Click="BtnNums_On_Click" Grid.ColumnSpan="2" />
+                <Button Content="9" x:Name="btn9" HorizontalAlignment="Left" Margin="26,408,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="2.14,0.375" Height="20" Grid.Column="1" Click="BtnNums_On_Click" Grid.ColumnSpan="2" />
+                <Button Content="*" x:Name="btnMultiply" HorizontalAlignment="Left" Margin="27,407,0,0" VerticalAlignment="Top" Width="76" Height="20" Grid.Column="2" Click="BtnOperators_On_Click"  />
+                <Button Content="4" x:Name="btn4" HorizontalAlignment="Left" Margin="299,443,0,0" VerticalAlignment="Top" Width="75" Height="20" Click="BtnNums_On_Click" />
+                <Button Content="5" x:Name="btn5" HorizontalAlignment="Left" Margin="382,441,0,0" VerticalAlignment="Top" Width="74" Height="20" Click="BtnNums_On_Click" Grid.ColumnSpan="2" />
+                <Button Content="6" x:Name="btn6" HorizontalAlignment="Left" Margin="26,443,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="2.14,0.375" Height="20" Grid.Column="1" Click="BtnNums_On_Click" Grid.ColumnSpan="2" />
+                <Button Content="-" x:Name="btnNeg" HorizontalAlignment="Left" Margin="27,441,0,0" VerticalAlignment="Top" Width="76" Height="20" Grid.Column="2" Click="BtnOperators_On_Click" />
+                <Button Content="1" x:Name="btn1" HorizontalAlignment="Left" Margin="299,475,0,-8" VerticalAlignment="Top" Width="75" Height="20" Click="BtnNums_On_Click" />
+                <Button Content="2" x:Name="btn2" HorizontalAlignment="Left" Margin="382,475,0,-8" VerticalAlignment="Top" Width="74" Height="20" Click="BtnNums_On_Click" Grid.ColumnSpan="2" />
+                <Button Content="3" x:Name="btn3" HorizontalAlignment="Left" Margin="26,475,0,-8" VerticalAlignment="Top" Width="75" RenderTransformOrigin="2.14,0.375" Height="20" Grid.Column="1" Click="BtnNums_On_Click" Grid.ColumnSpan="2" />
+                <Button Content="+" x:Name="btnPos" HorizontalAlignment="Left" Margin="27,475,0,-8" VerticalAlignment="Top" Width="76" Height="20" Grid.Column="2" Click="BtnOperators_On_Click" />
+                <Button Content="0" x:Name="btn0" HorizontalAlignment="Left" Margin="382,509,0,-42" VerticalAlignment="Top" Width="74" Height="20" Click="BtnNums_On_Click" Grid.ColumnSpan="2" />
+                <Button Content="." x:Name="btnPoint" HorizontalAlignment="Left" Margin="27,508,0,-41" VerticalAlignment="Top" Width="75" RenderTransformOrigin="2.14,0.375" Height="20" Grid.Column="1" Click="BtnNums_On_Click" Grid.ColumnSpan="2" />
+                <Button Content="=" x:Name="btnEqual" HorizontalAlignment="Left" Margin="27,509,0,-42" VerticalAlignment="Top" Width="76" Height="20" Grid.Column="2" Click="BtnOperators_On_Click" />
+                <Button Content="C" x:Name="btnClear" HorizontalAlignment="Left" Margin="384,372,0,0" VerticalAlignment="Top" Width="74" Height="20" Grid.ColumnSpan="2"/>
+                <Button Content="&lt;-" x:Name="btnBackspace" HorizontalAlignment="Left" Margin="26,372,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="2.14,0.375" Height="20" Grid.Column="1" Grid.ColumnSpan="2" Click="BtnEditionsOnClick" />
+                <Button Content="%" x:Name="btnPercentage" HorizontalAlignment="Left" Margin="299,509,0,-42" VerticalAlignment="Top" Width="75" Height="20" Click="BtnOperators_On_Click" />
+                <Button Content="/" x:Name="btnDivide" HorizontalAlignment="Left" Margin="26,371,0,0" VerticalAlignment="Top" Width="76" Height="20" Grid.Column="2" Click="BtnOperators_On_Click" />
+                <Button Content="√" x:Name="buttonRoot" HorizontalAlignment="Left" Margin="27,339,0,0" VerticalAlignment="Top" Width="74" Height="20" Grid.Column="1" Click="BtnNums_On_Click" Grid.ColumnSpan="2" />
+                <Button Content="Reset" x:Name="btnReset" HorizontalAlignment="Left" Margin="298,339,0,0" Background="Crimson" FontWeight="Bold" VerticalAlignment="Top" Width="76" RenderTransformOrigin="2.14,0.375" Height="20" Click="BtnEditionsOnClick" />
+                <Button Content="!" x:Name="btnFactorial" HorizontalAlignment="Left" Margin="299,372,0,0" VerticalAlignment="Top" Width="76" RenderTransformOrigin="2.14,0.375" Height="20" Click="BtnNums_On_Click" />
 
-                <Border BorderThickness="2" BorderBrush="Black" Margin="254,118,238,321" RenderTransformOrigin="0.52,0.5" Grid.ColumnSpan="3">
+                <Border BorderThickness="2" BorderBrush="Black" Margin="256,208,236,0" RenderTransformOrigin="0.52,0.5" Grid.ColumnSpan="3" Height="88" VerticalAlignment="Top">
                     <Border.RenderTransform>
                         <TransformGroup>
                             <ScaleTransform/>
@@ -52,11 +51,11 @@
                             <TranslateTransform/>
                         </TransformGroup>
                     </Border.RenderTransform>
-                    <TextBlock x:Name="CalcInput" Margin="2,2,14,0" TextWrapping="Wrap" TextAlignment="Right" Text="0" FontSize="28" RenderTransformOrigin="0.5,1.021" Grid.ColumnSpan="2" Background="White" Height="40" VerticalAlignment="Top" />
+                    <TextBlock x:Name="CalcInput" Margin="1,13,1,17" TextWrapping="Wrap" TextAlignment="Right" Text="0" FontSize="40" RenderTransformOrigin="0.5,1.021" Grid.ColumnSpan="2" Background="White" />
                 </Border>
 
-                <Border BorderBrush="Blue" BorderThickness="1.5" Margin="256,64,238,373" Grid.ColumnSpan="3">
-                    <TextBlock x:Name="CalcDisplay" FontSize="26" Background="White" FontWeight="Light" Margin="1,2,3,2" Grid.ColumnSpan="2" RenderTransformOrigin="0.5,0.5">
+                <Border BorderBrush="Blue" BorderThickness="2.55" Margin="177,105,159,0" Grid.ColumnSpan="3" Height="77" VerticalAlignment="Top">
+                    <TextBlock x:Name="CalcDisplay" FontSize="26" Background="White" FontWeight="Light" Margin="0,0,1,0" Grid.ColumnSpan="2" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Right" Width="573" Height="71" VerticalAlignment="Top">
                 <!--<TextBlock.RenderTransform>
                     <TransformGroup>
                         <ScaleTransform ScaleY="-1"/>
@@ -66,40 +65,111 @@
                     </TransformGroup>
                 </TextBlock.RenderTransform>--></TextBlock>
                 </Border>
-                <Button Content="^" x:Name="buttonRoot_Copy" HorizontalAlignment="Left" Margin="10,181,0,0" VerticalAlignment="Top" Width="74" Height="20" Grid.Column="2" RenderTransformOrigin="0.495,0.517" Click="BtnOperators_On_Click" />
-                <Slider HorizontalAlignment="Left" Margin="198,402,0,0" VerticalAlignment="Top" Width="95" RenderTransformOrigin="0.492,0.5"/>
+                <Button Content="^" x:Name="buttonRoot_Copy" HorizontalAlignment="Left" Margin="27,339,0,0" VerticalAlignment="Top" Width="74" Height="20" Grid.Column="2" RenderTransformOrigin="0.495,0.517" Click="BtnOperators_On_Click" />
+                <Button Content="^-" x:Name="btnInverse" HorizontalAlignment="Left" Margin="385,339,0,0" VerticalAlignment="Top" Width="74" Height="20" Click="BtnOperators_On_Click" Grid.ColumnSpan="2" />
             </Grid>
         </TabItem>
-        <TabItem Header="Base Convertion">
-            <Grid Margin="-117,-33,-156,-68" RenderTransformOrigin="0.421,0.353" Height="487" VerticalAlignment="Top">
+        <TabItem Header="Converter">
+            <Grid Margin="-117,-33,-156,-68" RenderTransformOrigin="0.421,0.353" Height="632" VerticalAlignment="Top">
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="451"/>
-                    <ColumnDefinition Width="94"/>
+                    <ColumnDefinition Width="293"/>
+                    <ColumnDefinition Width="150"/>
+                    <ColumnDefinition Width="102"/>
                     <ColumnDefinition Width="371"/>
                     <ColumnDefinition Width="0"/>
                     <ColumnDefinition Width="0*"/>
                     <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
-                
-                <Label FontSize="20" Content="Hexa Decimal" BorderBrush="Black" BorderThickness="3" Margin="126,194,187,245" />
-                <Border BorderBrush="Blue" BorderThickness="3" Grid.ColumnSpan="3" Margin="293,192,215,248">
 
-                    <TextBlock x:Name="Hexadecimal" Margin="1,153,-2,-152" Grid.ColumnSpan="3" Background="Tomato" />
+                <Border BorderThickness="5" BorderBrush="Black" Margin="200,45,303,0" Grid.ColumnSpan="4" Height="67" VerticalAlignment="Top">
+                    <TextBlock x:Name="convert_inputBox" Margin="3,3,116,3" Grid.ColumnSpan="3" Text="0.00" TextAlignment="Center" FontSize="30" RenderTransformOrigin="0.5,0.5" >
+                        <TextBlock.RenderTransform>
+                            <TransformGroup>
+                                <ScaleTransform ScaleY="-1" ScaleX="-1"/>
+                                <SkewTransform/>
+                                <RotateTransform Angle="-179.713"/>
+                                <TranslateTransform/>
+                            </TransformGroup>
+                        </TextBlock.RenderTransform>
+                    </TextBlock>
                 </Border>
-                
-                <Label FontSize="22" Content="Octal" BorderBrush="Black" BorderThickness="3" Margin="126,268,187,171" />
-                <Border BorderBrush="Blue" BorderThickness="3" Grid.ColumnSpan="3" Margin="292,267,216,173">
-
-                    <TextBlock x:Name="Hexadecimal1" Margin="1,-73,1,74" Grid.ColumnSpan="3" Background="DarkGreen" />
-                </Border>
-                <Label FontSize="22" Content="Binary" BorderBrush="Black" BorderThickness="3" Margin="128,346,185,93" />
-                <Border BorderBrush="Blue" BorderThickness="3" Grid.ColumnSpan="3" Margin="294,344,214,0" Height="46" VerticalAlignment="Top">
-
-                    <TextBlock x:Name="Hexadecimal2" Background="Aqua" Margin="0,-75,4,77" Grid.ColumnSpan="3" Width="398" HorizontalAlignment="Right" />
-                </Border>
-                <!--<TextBlock x:Name="Hexadecimal2_Copy" Margin="0,-144,55,593" Width="396" HorizontalAlignment="Right" />-->
-
-
+                <Menu Margin="69,51,310,0" Grid.Column="2" Grid.ColumnSpan="2" Height="54" VerticalAlignment="Top">
+                    <MenuItem x:Name="menuItemDefault" Header="Unit" Height="57" Width="93" FontSize="25" HorizontalContentAlignment="Center" Click="MenuItem_Click" RenderTransformOrigin="0.5,0.5" >
+                        <MenuItem.RenderTransform>
+                            <TransformGroup>
+                                <ScaleTransform/>
+                                <SkewTransform AngleY="-0.774"/>
+                                <RotateTransform Angle="0.759"/>
+                                <TranslateTransform Y="-0.736"/>
+                            </TransformGroup>
+                        </MenuItem.RenderTransform>
+                        <MenuItem x:Name="intMenuItem" Header="integer" IsCheckable="True" IsEnabledChanged="MenuItem_IsEnabledChanged" Click="ChildMenuItem_Click" />
+                        <MenuItem x:Name="hexaMenuItem" Header="hexadecimal" IsCheckable="True" IsEnabledChanged="MenuItem_IsEnabledChanged" Click="ChildMenuItem_Click" />
+                        <MenuItem x:Name="octalMenuItem" Header="octal" IsCheckable="True" Click="ChildMenuItem_Click" />
+                        <MenuItem x:Name="binaryMenuItem" Header="binary" IsCheckable="True" Click="ChildMenuItem_Click" />
+                        <Separator />
+                        <MenuItem x:Name="mgMenuItem" Header="mg" IsCheckable="True" Click="ChildMenuItem_Click" />
+                        <MenuItem x:Name="gramMenuItem" Header="gram" IsCheckable="True" Click="ChildMenuItem_Click" />
+                        <MenuItem x:Name="kgMenuItem" Header="kg" IsCheckable="True" Click="ChildMenuItem_Click" />
+                        <MenuItem x:Name="ounceMenuItem" Header="ounce" IsCheckable="True" Click="ChildMenuItem_Click" />
+                        <MenuItem x:Name="poundMenuItem" Header="pound" IsCheckable="True" Click="ChildMenuItem_Click" />
+                        <Separator />
+                        <MenuItem x:Name="celsiusMenuItem" Header="celsius" IsCheckable="True" Click="ChildMenuItem_Click" />
+                        <MenuItem x:Name="farenheitMenuItem" Header="farenheit" IsCheckable="True" Click="ChildMenuItem_Click" />
+                        <Separator />
+                        <MenuItem x:Name="mmMenuItem" Header="mm" IsCheckable="True" Click="ChildMenuItem_Click" />
+                        <MenuItem x:Name="cmMenuItem" Header="cm" IsCheckable="True" Click="ChildMenuItem_Click" />
+                        <MenuItem x:Name="meterMenuItem" Header="meter" IsCheckable="True" Click="ChildMenuItem_Click" />
+                        <MenuItem x:Name="kmMenuItem" Header="km" IsCheckable="True" Click="ChildMenuItem_Click" />
+                        <MenuItem x:Name="inchMenuItem" Header="inch" IsCheckable="True" Click="ChildMenuItem_Click" />
+                        <MenuItem x:Name="feetMenuItem" Header="feet" IsCheckable="True" Click="ChildMenuItem_Click" />
+                        <Separator />
+                        <MenuItem x:Name="byteMenuItem" Header="byte" IsCheckable="True" Click="ChildMenuItem_Click" />
+                        <MenuItem x:Name="kbMenuItem" Header="kb" IsCheckable="True" Click="ChildMenuItem_Click" />
+                        <MenuItem x:Name="mbMenuItem" Header="mb" IsCheckable="True" Click="ChildMenuItem_Click" />
+                        <MenuItem x:Name="gbMenuItem" Header="gb" IsCheckable="True" Click="ChildMenuItem_Click" />
+                        <MenuItem x:Name="tbMenuItem" Header="tb" IsCheckable="True" Click="ChildMenuItem_Click" />
+                        <Separator />
+                        <MenuItem x:Name="hourMenuItem" Header="hour" IsCheckable="True" Click="ChildMenuItem_Click" />
+                        <MenuItem x:Name="minMenuItem" Header="min" IsCheckable="True" Click="ChildMenuItem_Click" />
+                        <MenuItem x:Name="secMenuItem" Header="sec" IsCheckable="True" Click="ChildMenuItem_Click" />
+                    </MenuItem>
+                </Menu>
+                <Label x:Name="resultLabel1" FontSize="20" Content="label" BorderBrush="Black" BorderThickness="3" Margin="154,192,176,0" Grid.ColumnSpan="4" Visibility="Collapsed" Height="42" VerticalAlignment="Top" />
+                <Label x:Name="resultLabel2" FontSize="22" Content="Octal" BorderBrush="Black" BorderThickness="3" Margin="155,253,177,0" Visibility="Collapsed" Grid.ColumnSpan="4" Height="42" VerticalAlignment="Top" />
+                <Label x:Name="resultLabel3" FontSize="22" Content="Binary" BorderBrush="Black" BorderThickness="3" Margin="155,308,176,0" Visibility="Collapsed" Grid.ColumnSpan="4" Height="45" VerticalAlignment="Top" />
+                <Label x:Name="resultLabel4" FontSize="20" Content="Hexa Decimal" BorderBrush="Black" BorderThickness="3" Margin="154,369,176,0" Grid.ColumnSpan="4" Visibility="Collapsed" Height="43" VerticalAlignment="Top" />
+                <Label x:Name="resultLabel5" FontSize="22" Content="Octal" BorderBrush="Black" BorderThickness="3" Margin="154,432,176,0" Grid.ColumnSpan="4" Visibility="Collapsed" Height="44" VerticalAlignment="Top" />
+                <Label x:Name="resultLabel6" FontSize="22" Content="Binary" BorderBrush="Black" BorderThickness="3" Margin="154,501,176,0" Grid.ColumnSpan="4" Visibility="Collapsed" Height="46" VerticalAlignment="Top" />
+                <Label x:Name="resultLabel7" FontSize="20" Content="Hexa Decimal" BorderBrush="Black" BorderThickness="3" Margin="38,307,137,0" Grid.Column="2" Visibility="Collapsed" Grid.ColumnSpan="2" Height="43" VerticalAlignment="Top" />
+                <Label x:Name="resultLabel8" FontSize="22" Content="Octal" BorderBrush="Black" BorderThickness="3" Margin="37,368,135,0" Grid.Column="2" Visibility="Collapsed" Grid.ColumnSpan="2" Height="46" VerticalAlignment="Top" />
+                <Label x:Name="resultLabel9" FontSize="20" Content="Binary" BorderBrush="Black" BorderThickness="3" Margin="2,573,0,0" Grid.Column="1" Visibility="Collapsed" Grid.ColumnSpan="2" Background="Red" Height="43" VerticalAlignment="Top"  />
+                <Button x:Name="convertButton" Content="Calculate" HorizontalAlignment="Left" Margin="98,54,0,0" Width="91" Grid.Column="3" IsEnabled="False" FontSize="20" Click="ConvertButton_Click" Height="52" VerticalAlignment="Top" />
+                <Expander Grid.ColumnSpan="4" Header="Numpad" HorizontalAlignment="Left" Height="179" Margin="205,136,0,0" VerticalAlignment="Top" Width="502">
+                    <Grid Background="#FFE5E5E5" Margin="10,0,6,0" Height="136" RenderTransformOrigin="0.503,0.477">
+                        <Button Content="7" x:Name="convertBtn7" HorizontalAlignment="Left" Margin="9,7,0,0" VerticalAlignment="Top" Width="75" Height="20" Click="Convert_BtnNums_On_Click" />
+                        <Button Content="8" x:Name="convertBtn8" HorizontalAlignment="Left" Margin="108,6,0,0" VerticalAlignment="Top" Width="74" Height="20" Click="Convert_BtnNums_On_Click" />
+                        <Button Content="9" x:Name="convertBtn9" HorizontalAlignment="Left" Margin="207,7,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="2.14,0.375" Height="20" Click="Convert_BtnNums_On_Click" />
+                        <Button Content="4" x:Name="convertBtn4" HorizontalAlignment="Left" Margin="9,42,0,0" VerticalAlignment="Top" Width="75" Height="20" Click="Convert_BtnNums_On_Click" />
+                        <Button Content="5" x:Name="convertBtn5" HorizontalAlignment="Left" Margin="108,42,0,0" VerticalAlignment="Top" Width="74" Height="20" Click="Convert_BtnNums_On_Click" />
+                        <Button Content="6" x:Name="convertBtn6" HorizontalAlignment="Left" Margin="207,42,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="2.14,0.375" Height="20" Click="Convert_BtnNums_On_Click" />
+                        <Button Content="1" x:Name="convertBtn1" HorizontalAlignment="Left" Margin="9,77,0,0" VerticalAlignment="Top" Width="75" Height="20" Click="Convert_BtnNums_On_Click" />
+                        <Button Content="2" x:Name="convertBtn2" HorizontalAlignment="Left" Margin="107,77,0,0" VerticalAlignment="Top" Width="74" Height="20" Click="Convert_BtnNums_On_Click" />
+                        <Button Content="3" x:Name="convertBtn3" HorizontalAlignment="Left" Margin="207,76,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="2.14,0.375" Height="20" Click="Convert_BtnNums_On_Click" />
+                        <Button Content="0" x:Name="convertBtn0" HorizontalAlignment="Left" Margin="107,110,0,0" VerticalAlignment="Top" Width="74" Height="20" Click="Convert_BtnNums_On_Click" />
+                        <!--<Button Content="." x:Name="convertBtnDot" HorizontalAlignment="Left" Margin="208,110,0,0" VerticalAlignment="Top" Width="74" Height="20" Click="Convert_BtnNums_On_Click" />-->
+                        <Button Content="+" x:Name="convertBtnPosSign" HorizontalAlignment="Left" Margin="301,108,0,0" VerticalAlignment="Top" Width="75" Height="20" Click="Convert_BtnNums_On_Click" />
+                        <Button Content="-" x:Name="convertBtnNegSign" HorizontalAlignment="Left" Margin="397,108,0,0" VerticalAlignment="Top" Width="76" Height="20" Click="Convert_BtnNums_On_Click" />
+                        <Button Content="&lt;-" x:Name="convertBtnBackspace" HorizontalAlignment="Left" Margin="10,110,0,0" VerticalAlignment="Top" Width="74" Height="20" Click="Convert_BtnNums_On_Click" />
+                        <Button Content="A" x:Name="convertBtnA" HorizontalAlignment="Left" Margin="300,7,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="2.14,0.375" Height="20" Click="Convert_BtnNums_On_Click" />
+                        <Button Content="B" x:Name="convertBtnB" HorizontalAlignment="Left" Margin="300,43,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="2.14,0.375" Height="20" Click="Convert_BtnNums_On_Click" />
+                        <Button Content="C" x:Name="convertBtnC" HorizontalAlignment="Left" Margin="300,77,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="2.14,0.375" Height="20" Click="Convert_BtnNums_On_Click" />
+                        <Button Content="D" x:Name="convertBtnD" HorizontalAlignment="Left" Margin="395,7,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="2.14,0.375" Height="20" Click="Convert_BtnNums_On_Click" />
+                        <Button Content="E" x:Name="convertBtnE" HorizontalAlignment="Left" Margin="396,43,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="2.14,0.375" Height="20" Click="Convert_BtnNums_On_Click" />
+                        <Button Content="F" x:Name="convertBtnF" HorizontalAlignment="Left" Margin="397,77,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="2.14,0.375" Height="20" Click="Convert_BtnNums_On_Click" />
+                        <Button Content="." x:Name="convertBtnDot" HorizontalAlignment="Left" Margin="208,109,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="2.14,0.375" Height="20" Click="Convert_BtnNums_On_Click" />
+                    </Grid>
+                </Expander>
             </Grid>
         </TabItem>
     </TabControl>

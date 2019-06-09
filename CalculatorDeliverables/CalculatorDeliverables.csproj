@@ -64,6 +64,8 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Helpers\BasicHelperMethods.cs" />
+    <Compile Include="Helpers\ConversionHelper.cs" />
+    <Compile Include="Helpers\UnitCalculationHelper.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
