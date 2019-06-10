@@ -14,6 +14,7 @@ namespace CalculatorDeliverables.Helpers
         public MainWindow MainWindow { get; set; }
         public List<MenuItem> AllMenuItems { get; set; }
         public List<MenuItem> BaseConversionItems { get; set; }
+        public List<MenuItem> PercentConversionItems { get; set; }
         public List<MenuItem> WeightConversionItems { get; set; }
         public List<MenuItem> TemperatureConversionItems { get; set; }
         public List<MenuItem> LengthConversionItems { get; set; }
@@ -30,11 +31,15 @@ namespace CalculatorDeliverables.Helpers
             ButtonsDisabled = false;
             AllMenuItems = new List<MenuItem>
             {
-                MainWindow.intMenuItem, MainWindow.hexaMenuItem, MainWindow.octalMenuItem, MainWindow.binaryMenuItem, MainWindow.mgMenuItem, MainWindow.gramMenuItem, MainWindow.kgMenuItem, MainWindow.ounceMenuItem, MainWindow.poundMenuItem, MainWindow.celsiusMenuItem, MainWindow.farenheitMenuItem, MainWindow.mmMenuItem, MainWindow.cmMenuItem, MainWindow.meterMenuItem, MainWindow.kmMenuItem, MainWindow.inchMenuItem, MainWindow.feetMenuItem, MainWindow.byteMenuItem, MainWindow.kbMenuItem, MainWindow.mbMenuItem, MainWindow.gbMenuItem, MainWindow.tbMenuItem, MainWindow.hourMenuItem, MainWindow.minMenuItem, MainWindow.secMenuItem
+                MainWindow.intMenuItem, MainWindow.hexaMenuItem, MainWindow.octalMenuItem, MainWindow.binaryMenuItem, MainWindow.mgMenuItem, MainWindow.gramMenuItem, MainWindow.kgMenuItem, MainWindow.ounceMenuItem, MainWindow.poundMenuItem, MainWindow.celsiusMenuItem, MainWindow.farenheitMenuItem, MainWindow.mmMenuItem, MainWindow.cmMenuItem, MainWindow.meterMenuItem, MainWindow.kmMenuItem, MainWindow.inchMenuItem, MainWindow.feetMenuItem, MainWindow.byteMenuItem, MainWindow.kbMenuItem, MainWindow.mbMenuItem, MainWindow.gbMenuItem, MainWindow.tbMenuItem, MainWindow.hourMenuItem, MainWindow.minMenuItem, MainWindow.secMenuItem, MainWindow.percentMenuItem, MainWindow.decimalMenuItem
             };
             BaseConversionItems = new List<MenuItem>
             {
                 MainWindow.intMenuItem, MainWindow.hexaMenuItem, MainWindow.octalMenuItem, MainWindow.binaryMenuItem
+            };
+            PercentConversionItems = new List<MenuItem>
+            {
+                MainWindow.percentMenuItem, MainWindow.decimalMenuItem
             };
             WeightConversionItems = new List<MenuItem>
             {
@@ -79,6 +84,8 @@ namespace CalculatorDeliverables.Helpers
             var nonIntegerRelatedControls = new List<Button> { MainWindow.convertBtnA, MainWindow.convertBtnB, MainWindow.convertBtnC, MainWindow.convertBtnD, MainWindow.convertBtnE, MainWindow.convertBtnF, MainWindow.convertBtnDot };
 
             var nonOctalRelatedControls = new List<Button> { MainWindow.convertBtn8, MainWindow.convertBtn9, MainWindow.convertBtnA, MainWindow.convertBtnB, MainWindow.convertBtnC, MainWindow.convertBtnD, MainWindow.convertBtnE, MainWindow.convertBtnF, MainWindow.convertBtnDot };
+
+            var nonPercentRelatedControls = new List<Button> { MainWindow.convertBtnA, MainWindow.convertBtnB, MainWindow.convertBtnC, MainWindow.convertBtnD, MainWindow.convertBtnE, MainWindow.convertBtnF, MainWindow.convertBtnNegSign, MainWindow.convertBtnPosSign };
 
             var nonWeightRelatedControls = new List<Button> { MainWindow.convertBtnA, MainWindow.convertBtnB, MainWindow.convertBtnC, MainWindow.convertBtnD, MainWindow.convertBtnE, MainWindow.convertBtnF, MainWindow.convertBtnNegSign, MainWindow.convertBtnPosSign };
 
@@ -157,6 +164,24 @@ namespace CalculatorDeliverables.Helpers
                 else
                 {
                     foreach (var button in nonOctalRelatedControls)
+                    {
+                        button.IsEnabled = false;
+                    }
+                }
+            }
+            else if(menuElementHeader == "decimal" || menuElementHeader == "percent")
+            {
+                if (!IsValidDecimalString(inputText))
+                {
+                    ResetConversionSystem();
+                    foreach (var button in nonPercentRelatedControls)
+                    {
+                        button.IsEnabled = false;
+                    }
+                }
+                else
+                {
+                    foreach (var button in nonPercentRelatedControls)
                     {
                         button.IsEnabled = false;
                     }
@@ -294,6 +319,11 @@ namespace CalculatorDeliverables.Helpers
                     button.IsEnabled = true;
                 }
 
+                foreach (var button in nonPercentRelatedControls)
+                {
+                    button.IsEnabled = true;
+                }
+
                 ButtonsDisabled = false;
             }
         }
@@ -340,6 +370,37 @@ namespace CalculatorDeliverables.Helpers
                                 }
 
 
+
+
+                                ResultLabels[i].Content = viableResultLabelNames[i];
+                            }
+                        }
+                        else if (PercentConversionItems.Contains(element))
+                        {
+                            for (var i = 0; i < PercentConversionItems.Count() - 1; i++)
+                            {
+                                ResultLabels[i].IsEnabled = true;
+                                ResultLabels[i].Visibility = Visibility.Visible;
+                                MainWindow.convertButton.IsEnabled = true;
+
+
+                                var viableResultLabelNames = new List<string>();
+
+                                foreach (var percentItem in PercentConversionItems)
+                                {
+                                    if (percentItem.Name != element.Name)
+                                    {
+                                        viableResultLabelNames.Add(percentItem.Header.ToString());
+                                    }
+                                    else
+                                    {
+                                        if (!ButtonsDisabled)
+                                        {
+                                            EnableDisableRelatedButtons(element.Header.ToString(), false);
+                                            ButtonsDisabled = true;
+                                        }
+                                    }
+                                }
 
 
                                 ResultLabels[i].Content = viableResultLabelNames[i];
@@ -634,31 +695,35 @@ namespace CalculatorDeliverables.Helpers
 
         public string DetermineCategoryOfUnit(string nameOfUnit)
         {
-            List<string> returnValues = new List<string> { "BaseConversion", "WeightConversion", "TemperatureConversion", "LengthConversion", "DigitalSizeConversion", "TimeConversion" };
+            List<string> returnValues = new List<string> { "BaseConversion", "PercentConversion", "WeightConversion", "TemperatureConversion", "LengthConversion", "DigitalSizeConversion", "TimeConversion" };
 
             if (BaseConversionItems.Select(p => p.Header).ToList().Contains(nameOfUnit))
             {
                 return returnValues[0];
             }
-            else if (WeightConversionItems.Select(p => p.Header).ToList().Contains(nameOfUnit))
+            else if(PercentConversionItems.Select(p => p.Header).ToList().Contains(nameOfUnit))
             {
                 return returnValues[1];
             }
-            else if (TemperatureConversionItems.Select(p => p.Header).ToList().Contains(nameOfUnit))
+            else if (WeightConversionItems.Select(p => p.Header).ToList().Contains(nameOfUnit))
             {
                 return returnValues[2];
             }
-            else if (LengthConversionItems.Select(p => p.Header).ToList().Contains(nameOfUnit))
+            else if (TemperatureConversionItems.Select(p => p.Header).ToList().Contains(nameOfUnit))
             {
                 return returnValues[3];
             }
-            else if (DigitalSizeConversionItems.Select(p => p.Header).ToList().Contains(nameOfUnit))
+            else if (LengthConversionItems.Select(p => p.Header).ToList().Contains(nameOfUnit))
             {
                 return returnValues[4];
             }
-            else if (TimeConversionItems.Select(p => p.Header).ToList().Contains(nameOfUnit))
+            else if (DigitalSizeConversionItems.Select(p => p.Header).ToList().Contains(nameOfUnit))
             {
                 return returnValues[5];
+            }
+            else if (TimeConversionItems.Select(p => p.Header).ToList().Contains(nameOfUnit))
+            {
+                return returnValues[6];
             }
             else
             {

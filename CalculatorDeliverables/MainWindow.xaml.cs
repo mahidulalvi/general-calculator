@@ -436,6 +436,21 @@ namespace CalculatorDeliverables
                             resultLabel9.Visibility = Visibility.Visible;
                         }
                     }
+                    else if (ConversionHelper.DetermineCategoryOfUnit(menuItemString) == "PercentConversion")
+                    {
+                        if ((menuItemString == "decimal" && ConversionHelper.IsValidDecimalString(valueToBeConverted)) || (menuItemString == "percent" && ConversionHelper.IsValidDecimalString(valueToBeConverted)))
+                        {
+                            PercentConversionUnits percentConversionUnits = new PercentConversionUnits(menuItemString);
+
+                            var results = percentConversionUnits.CalculatedValues(valueToBeConverted);
+
+                            for (var i = 0; i < results.Count(); i++)
+                            {
+                                var resultLabel = (Label)this.FindName($"resultLabel{i + 1}");
+                                resultLabel.Content = $"{results[i].Unit} = {results[i].Value}";
+                            }
+                        }
+                    }
                     else if (ConversionHelper.DetermineCategoryOfUnit(menuItemString) == "WeightConversion")
                     {
                         if ((menuItemString == "mg" && ConversionHelper.IsValidDecimalString(valueToBeConverted)) || (menuItemString == "gram" && ConversionHelper.IsValidDecimalString(valueToBeConverted)) || (menuItemString == "kg" && ConversionHelper.IsValidDecimalString(valueToBeConverted)) || (menuItemString == "ounce" && ConversionHelper.IsValidDecimalString(valueToBeConverted)) || (menuItemString == "pound" && ConversionHelper.IsValidDecimalString(valueToBeConverted)))

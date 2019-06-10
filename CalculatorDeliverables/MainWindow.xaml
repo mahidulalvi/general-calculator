@@ -36,7 +36,7 @@
                 <Button Content="=" x:Name="btnEqual" HorizontalAlignment="Left" Margin="27,509,0,-42" VerticalAlignment="Top" Width="76" Height="20" Grid.Column="2" Click="BtnOperators_On_Click" />
                 <Button Content="C" x:Name="btnClear" HorizontalAlignment="Left" Margin="384,372,0,0" VerticalAlignment="Top" Width="74" Height="20" Grid.ColumnSpan="2"/>
                 <Button Content="&lt;-" x:Name="btnBackspace" HorizontalAlignment="Left" Margin="26,372,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="2.14,0.375" Height="20" Grid.Column="1" Grid.ColumnSpan="2" Click="BtnEditionsOnClick" />
-                <Button Content="%" x:Name="btnPercentage" HorizontalAlignment="Left" Margin="299,509,0,-42" VerticalAlignment="Top" Width="75" Height="20" Click="BtnOperators_On_Click" />
+                <Button Content="Mod" x:Name="btnMod" HorizontalAlignment="Left" Margin="299,509,0,-42" VerticalAlignment="Top" Width="75" Height="20" Click="BtnOperators_On_Click" />
                 <Button Content="/" x:Name="btnDivide" HorizontalAlignment="Left" Margin="26,371,0,0" VerticalAlignment="Top" Width="76" Height="20" Grid.Column="2" Click="BtnOperators_On_Click" />
                 <Button Content="√" x:Name="buttonRoot" HorizontalAlignment="Left" Margin="27,339,0,0" VerticalAlignment="Top" Width="74" Height="20" Grid.Column="1" Click="BtnNums_On_Click" Grid.ColumnSpan="2" />
                 <Button Content="Reset" x:Name="btnReset" HorizontalAlignment="Left" Margin="298,339,0,0" Background="Crimson" FontWeight="Bold" VerticalAlignment="Top" Width="76" RenderTransformOrigin="2.14,0.375" Height="20" Click="BtnEditionsOnClick" />
@@ -107,6 +107,9 @@
                         <MenuItem x:Name="hexaMenuItem" Header="hexadecimal" IsCheckable="True" IsEnabledChanged="MenuItem_IsEnabledChanged" Click="ChildMenuItem_Click" />
                         <MenuItem x:Name="octalMenuItem" Header="octal" IsCheckable="True" Click="ChildMenuItem_Click" />
                         <MenuItem x:Name="binaryMenuItem" Header="binary" IsCheckable="True" Click="ChildMenuItem_Click" />
+                        <Separator />
+                        <MenuItem x:Name="decimalMenuItem" Header="decimal" IsCheckable="True" Click="ChildMenuItem_Click" />
+                        <MenuItem x:Name="percentMenuItem" Header="percent" IsCheckable="True" Click="ChildMenuItem_Click" />
                         <Separator />
                         <MenuItem x:Name="mgMenuItem" Header="mg" IsCheckable="True" Click="ChildMenuItem_Click" />
                         <MenuItem x:Name="gramMenuItem" Header="gram" IsCheckable="True" Click="ChildMenuItem_Click" />

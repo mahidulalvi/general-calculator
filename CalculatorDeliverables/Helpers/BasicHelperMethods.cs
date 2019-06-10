@@ -132,7 +132,7 @@ namespace CalculatorDeliverables.Helpers
                     return null;
                 }
             }
-            else if (input == "%")
+            else if (input == "Mod")
             {                
                 return referenceNumber % latestInput;
             }

@@ -517,4 +517,62 @@ namespace CalculatorDeliverables.Helpers
             return results;
         }
     }
+
+
+
+
+
+
+
+
+
+
+
+    class PercentConversionUnits
+    {
+        public string GivenUnitName { get; set; }
+        public List<string> AllRelatedUnitNames { get; set; }
+
+        public PercentConversionUnits(string unit)
+        {
+            AllRelatedUnitNames = new List<string> { "decimal", "percent" };
+            GivenUnitName = unit;
+        }
+
+        public List<UnitValue> CalculatedValues(string value)
+        {
+            var listOfConvertibleUnits = AllRelatedUnitNames;
+            listOfConvertibleUnits.Remove(GivenUnitName);
+            double unitInDouble;
+
+            unitInDouble = Convert.ToDouble(value);
+
+            double valueResult = unitInDouble;
+
+            var decimalUnit = new UnitValue
+            {
+                Unit = "decimal",
+                Value = GivenUnitName == "percent" ? (valueResult * 100).ToString() : valueResult.ToString()
+            };
+
+            var percentUnit = new UnitValue
+            {
+                Unit = "percent",
+                Value = GivenUnitName == "decimal" ? (valueResult / 100).ToString() : valueResult.ToString()
+            };
+
+            List<UnitValue> preResults = new List<UnitValue> { decimalUnit, percentUnit };
+            List<UnitValue> results = new List<UnitValue>();
+
+            foreach (var preResult in preResults)
+            {
+                if (listOfConvertibleUnits.Contains(preResult.Unit))
+                {
+                    results.Add(preResult);
+                }
+            }
+
+            return results;
+        }
+    }
 }
