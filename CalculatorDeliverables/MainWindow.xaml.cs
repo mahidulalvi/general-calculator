@@ -192,6 +192,10 @@ namespace CalculatorDeliverables
                     }
                     CalcInput.Text = editedText;
                 }
+                else if(button.Name == "btnClear")
+                {
+                    CalcInput.Text = "";
+                }
                 else if (button.Name == "btnReset")
                 {
                     CalcInput.Text = "0";

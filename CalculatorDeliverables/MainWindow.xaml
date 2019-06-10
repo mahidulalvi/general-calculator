@@ -34,7 +34,7 @@
                 <Button Content="0" x:Name="btn0" HorizontalAlignment="Left" Margin="382,509,0,-42" VerticalAlignment="Top" Width="74" Height="20" Click="BtnNums_On_Click" Grid.ColumnSpan="2" />
                 <Button Content="." x:Name="btnPoint" HorizontalAlignment="Left" Margin="27,508,0,-41" VerticalAlignment="Top" Width="75" RenderTransformOrigin="2.14,0.375" Height="20" Grid.Column="1" Click="BtnNums_On_Click" Grid.ColumnSpan="2" />
                 <Button Content="=" x:Name="btnEqual" HorizontalAlignment="Left" Margin="27,509,0,-42" VerticalAlignment="Top" Width="76" Height="20" Grid.Column="2" Click="BtnOperators_On_Click" />
-                <Button Content="C" x:Name="btnClear" HorizontalAlignment="Left" Margin="384,372,0,0" VerticalAlignment="Top" Width="74" Height="20" Grid.ColumnSpan="2"/>
+                <Button Content="C" x:Name="btnClear" HorizontalAlignment="Left" Margin="384,372,0,0" VerticalAlignment="Top" Width="74" Height="20" Grid.ColumnSpan="2" Click="BtnEditionsOnClick" />
                 <Button Content="&lt;-" x:Name="btnBackspace" HorizontalAlignment="Left" Margin="26,372,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="2.14,0.375" Height="20" Grid.Column="1" Grid.ColumnSpan="2" Click="BtnEditionsOnClick" />
                 <Button Content="Mod" x:Name="btnMod" HorizontalAlignment="Left" Margin="299,509,0,-42" VerticalAlignment="Top" Width="75" Height="20" Click="BtnOperators_On_Click" />
                 <Button Content="/" x:Name="btnDivide" HorizontalAlignment="Left" Margin="26,371,0,0" VerticalAlignment="Top" Width="76" Height="20" Grid.Column="2" Click="BtnOperators_On_Click" />
