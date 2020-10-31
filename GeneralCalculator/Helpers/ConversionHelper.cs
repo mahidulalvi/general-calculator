@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 
-namespace CalculatorDeliverables.Helpers
+namespace GeneralCalculator.Helpers
 {
     class ConversionHelper
     {
@@ -23,6 +23,7 @@ namespace CalculatorDeliverables.Helpers
         public List<Label> ResultLabels { get; set; }
         public UnitCalculationHelper UnitCalculationHelper { get; set; }
         public bool ButtonsDisabled { get; set; }
+
 
         public ConversionHelper(MainWindow mainwindow)
         {
@@ -66,6 +67,7 @@ namespace CalculatorDeliverables.Helpers
                 MainWindow.resultLabel1, MainWindow.resultLabel2, MainWindow.resultLabel3, MainWindow.resultLabel4, MainWindow.resultLabel5, MainWindow.resultLabel6, MainWindow.resultLabel7, MainWindow.resultLabel8, MainWindow.resultLabel9,
             };
         }
+
 
         public void ResetConversionSystem()
         {
@@ -369,9 +371,6 @@ namespace CalculatorDeliverables.Helpers
                                     }
                                 }
 
-
-
-
                                 ResultLabels[i].Content = viableResultLabelNames[i];
                             }
                         }
@@ -402,7 +401,6 @@ namespace CalculatorDeliverables.Helpers
                                     }
                                 }
 
-
                                 ResultLabels[i].Content = viableResultLabelNames[i];
                             }
                         }
@@ -413,7 +411,6 @@ namespace CalculatorDeliverables.Helpers
                                 ResultLabels[i].IsEnabled = true;
                                 ResultLabels[i].Visibility = Visibility.Visible;
                                 MainWindow.convertButton.IsEnabled = true;
-
 
                                 var viableResultLabelNames = new List<string>();
 
@@ -558,8 +555,6 @@ namespace CalculatorDeliverables.Helpers
                                 ResultLabels[i].Content = viableResultLabelNames[i];
                             }
                         }
-
-
                     }
                 }
             }
@@ -584,9 +579,9 @@ namespace CalculatorDeliverables.Helpers
 
         public void ChangeConvertInputBoxInResetState()
         {
-            //MainWindow.convert_inputBox.Text = "0.00";
             MainWindow.ConvertInputBoxInResetState = true;
         }
+
 
         public bool IsValidBinaryString(string binaryString)
         {
@@ -612,29 +607,19 @@ namespace CalculatorDeliverables.Helpers
 
         public bool IsValidHexString(string hexString)
         {
-            //NumberStyles styles = NumberStyles.HexNumber | NumberStyles.AllowLeadingSign;            
-
             bool success;
 
             string hexStringWithoutSign;
             
             if (hexString.StartsWith("-") || hexString.StartsWith("+"))
             {
-                //int number;
                 hexStringWithoutSign = hexString.Substring(1);
-                //success = Int32.TryParse(hexStringWithoutSign, styles,
-                                   //null, out number);
-
                 success = hexStringWithoutSign.Select(currentCharacter =>
                 (currentCharacter >= '0' && currentCharacter <= '9') ||
                 (currentCharacter >= 'A' && currentCharacter <= 'F')).All(isHexCharacter => isHexCharacter);
             }
             else
             {
-                //int number;
-                //success = Int32.TryParse(hexString, styles,
-                //null, out number);
-
                 success = hexString.Select(currentCharacter =>
                 (currentCharacter >= '0' && currentCharacter <= '9') ||
                 (currentCharacter >= 'A' && currentCharacter <= 'F')).All(isHexCharacter => isHexCharacter);
@@ -642,6 +627,7 @@ namespace CalculatorDeliverables.Helpers
 
             return success;
         }
+
 
         public bool IsValidOctalString(string octalString)
         {
@@ -670,6 +656,7 @@ namespace CalculatorDeliverables.Helpers
             return success;
         }
 
+
         public bool IsValidIntegerString(string integerString)
         {
             NumberStyles styles = NumberStyles.Integer;
@@ -690,7 +677,6 @@ namespace CalculatorDeliverables.Helpers
 
             return success;
         }
-
 
 
         public string DetermineCategoryOfUnit(string nameOfUnit)
@@ -730,9 +716,5 @@ namespace CalculatorDeliverables.Helpers
                 return null;
             }
         }
-
-
-
-
     }
 }

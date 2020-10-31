@@ -7,7 +7,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 
-namespace CalculatorDeliverables.Helpers
+namespace GeneralCalculator.Helpers
 {
     class BasicHelperMethods
     {
@@ -17,6 +17,7 @@ namespace CalculatorDeliverables.Helpers
         {
             MainWindow = mainwindow;
         }
+
 
         public bool IsInputEmpty()
         {
@@ -30,6 +31,7 @@ namespace CalculatorDeliverables.Helpers
             }
         }
 
+
         public bool IsInputInvalid()
         {
             if (MainWindow.CalcInput.Text.Contains(","))
@@ -41,6 +43,7 @@ namespace CalculatorDeliverables.Helpers
                 return false;
             }
         }
+
 
         public bool IsInputLeftUnused()
         {
@@ -59,7 +62,6 @@ namespace CalculatorDeliverables.Helpers
         }
 
 
-
         public bool InputHasLeadingZeroWithoutDecimals(string input)
         {
             if (input.StartsWith("0") && !InputHasDecimal(input))
@@ -69,6 +71,7 @@ namespace CalculatorDeliverables.Helpers
 
             return false;
         }
+
 
         public int NumberOfLeadingZeroes(string input)
         {
@@ -94,7 +97,6 @@ namespace CalculatorDeliverables.Helpers
         }        
 
 
-        //√√√
         public bool InputHasDecimal(string input)
         {
             if (input.Contains("."))
@@ -104,6 +106,7 @@ namespace CalculatorDeliverables.Helpers
 
             return false;
         }
+
 
         public double? DetermineOperatorAndCalculate(string input, double? referenceNumber, double latestInput)
         {
@@ -143,9 +146,7 @@ namespace CalculatorDeliverables.Helpers
 
                 var finalResult = Math.Pow(baseNumber, power);
 
-                //var finalResultInDecimal = Convert.ToDecimal(finalResult);
-
-                return finalResult/*InDecimal*/;
+                return finalResult;
             }
             else if (input == "^-")
             {
@@ -154,18 +155,8 @@ namespace CalculatorDeliverables.Helpers
 
                 var finalResult = Math.Pow(baseNumber, (power * -1));
 
-                //var finalResultInDecimal = Convert.ToDecimal(finalResult);
-
-                return finalResult/*InDecimal*/;
+                return finalResult;
             }
-            //else if(input == "")
-            //{
-            //    var numberToBeRooted = Convert.ToDouble(latestInput);
-            //    var finalResult = Math.Sqrt(numberToBeRooted);
-            //    var finalResultInDecimal = Convert.ToDecimal(finalResult);
-
-            //    return finalResultInDecimal;
-            //}
 
             return referenceNumber;
         }
@@ -180,7 +171,6 @@ namespace CalculatorDeliverables.Helpers
 
             var numberToBeRooted = Convert.ToDouble(numberWithRoot);
             var finalResult = Math.Sqrt(numberToBeRooted);
-            //var finalResultInDecimal = Convert.ToDecimal(finalResult);
 
             double numberWithoutRoot;
             string numberWithoutRootAsString;
@@ -216,6 +206,7 @@ namespace CalculatorDeliverables.Helpers
                 }
             }
         }
+
 
         public bool ValidateSqrtInput(string input)
         {
