@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CalculatorDeliverables.Helpers
+namespace GeneralCalculator.Helpers
 {
     class UnitCalculationHelper
     {
@@ -134,7 +134,7 @@ namespace CalculatorDeliverables.Helpers
             var binaryUnit = new UnitValue
             {
                 Unit = "binary",
-                Value = hasNegativeSignInTheBeginning ? "-" + Convert.ToString(unitInInteger, 2) : hasPositiveSignInTheBeginning ? "+" + Convert.ToString(unitInInteger, 2) : Convert.ToString(unitInInteger, 2)        /*Convert.ToString(unitInInteger, 2)*/
+                Value = hasNegativeSignInTheBeginning ? "-" + Convert.ToString(unitInInteger, 2) : hasPositiveSignInTheBeginning ? "+" + Convert.ToString(unitInInteger, 2) : Convert.ToString(unitInInteger, 2)
             };
 
             var octalUnit = new UnitValue
@@ -251,16 +251,19 @@ namespace CalculatorDeliverables.Helpers
         }
     }
 
+
     class LengthConversionUnits
     {
         public string GivenUnitName { get; set; }
         public List<string> AllRelatedUnitNames { get; set; }
+
 
         public LengthConversionUnits(string unit)
         {
             AllRelatedUnitNames = new List<string> { "mm", "cm", "meter", "km", "inch", "feet" };
             GivenUnitName = unit;
         }
+
 
         public List<UnitValue> CalculatedValues(string value)
         {

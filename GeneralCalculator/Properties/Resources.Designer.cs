@@ -8,10 +8,8 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace CalculatorDeliverables.Properties
+namespace GeneralCalculator.Properties
 {
-
-
     /// <summary>
     ///   A strongly-typed resource class, for looking up localized strings, etc.
     /// </summary>
@@ -24,7 +22,6 @@ namespace CalculatorDeliverables.Properties
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     internal class Resources
     {
-
         private static global::System.Resources.ResourceManager resourceMan;
 
         private static global::System.Globalization.CultureInfo resourceCulture;
@@ -44,7 +41,7 @@ namespace CalculatorDeliverables.Properties
             {
                 if ((resourceMan == null))
                 {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("CalculatorDeliverables.Properties.Resources", typeof(Resources).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("GeneralCalculator.Properties.Resources", typeof(Resources).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;

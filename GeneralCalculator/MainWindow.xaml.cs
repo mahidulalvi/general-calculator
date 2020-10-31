@@ -1,4 +1,4 @@
-﻿using CalculatorDeliverables.Helpers;
+﻿using GeneralCalculator.Helpers;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,7 +14,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace CalculatorDeliverables
+namespace GeneralCalculator
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
@@ -43,7 +43,7 @@ namespace CalculatorDeliverables
             InputNumbers = new List<double>();
             Result = 0;
             Operator = "";
-            ResultShowingInCalcInput = false/*true*/;
+            ResultShowingInCalcInput = false;
             IsCalcInResetState = true;
             InputHasRoot = false;
             InputHasFactorial = false;
@@ -86,19 +86,6 @@ namespace CalculatorDeliverables
                         }
                     }
 
-                    //if (BasicHelper.InputHasLeadingZeroWithoutDecimals(CalcInput.Text))
-                    //{
-                    //    var totalLeadingZeroes = BasicHelper.NumberOfLeadingZeroes(CalcInput.Text);
-
-                    //    var textWithoutLeadingZero = CalcInput.Text.Substring(totalLeadingZeroes);
-
-                    //    CalcInput.Text = "";
-                    //    CalcInput.Text = textWithoutLeadingZero + "0";
-                    //}
-                    //else
-                    //{
-                    //    CalcInput.Text += button.Content;
-                    //}
                     var buttonContent = button.Content.ToString();
 
                     if (buttonContent == "0")
@@ -130,7 +117,6 @@ namespace CalculatorDeliverables
                         CalcInput.Text += button.Content;
                     }
                 }
-
 
 
                 if (CalcInput.Text.Contains("√"))
@@ -217,21 +203,11 @@ namespace CalculatorDeliverables
         }
 
 
-
         private void BtnOperators_On_Click(object sender, RoutedEventArgs e)
         {
             Button button = e.Source as Button;
             if (button != null && (OperatorAllowed || (OnlyEqualSignAllowed && button.Content.ToString() == "=")))
             {
-                //When the user inputs too many leading zeroes, this if function trims them
-                //if (BasicHelper.InputHasLeadingZeroWithoutDecimals(CalcInput.Text) && !IsCalcInResetState)
-                //{
-                //    var totalLeadingZeroes = BasicHelper.NumberOfLeadingZeroes(CalcInput.Text);
-
-                //    var textWithoutLeadingZero = CalcInput.Text.Substring(totalLeadingZeroes);
-                //    CalcInput.Text = textWithoutLeadingZero;
-                //}
-
                 //Checking to see if Calculator has been reseted
                 string inputText;
                 if (IsCalcInResetState)
@@ -252,18 +228,16 @@ namespace CalculatorDeliverables
                 {
                     inputText = CalcInput.Text;
                 }
+
                 var inputTextConvertedToDouble = Convert.ToDouble(inputText);
 
-
                 CalcDisplay.Text += inputText + " ";
-
 
                 InputNumbers.Add(inputTextConvertedToDouble);
                 if (button.Content.ToString() != "=")
                 {
                     CalcDisplay.Text += " " + button.Content + " ";
                 }
-
 
                 if (InputNumbers.Count() > 1)
                 {                    
@@ -313,16 +287,19 @@ namespace CalculatorDeliverables
                 }
             }
         }
+        
 
         private void MenuItem_Click(object sender, RoutedEventArgs e)
         {
 
         }
 
+
         private void MenuItem_IsEnabledChanged(object sender, DependencyPropertyChangedEventArgs e)
         {
 
         }
+
 
         private void ChildMenuItem_Click(object sender, RoutedEventArgs e)
         {
@@ -339,6 +316,7 @@ namespace CalculatorDeliverables
                 }
             }
         }
+
 
         private void Convert_BtnNums_On_Click(object sender, RoutedEventArgs e)
         {
