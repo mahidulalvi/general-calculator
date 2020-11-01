@@ -1,6 +1,6 @@
 # general-calculator
 
-General Calculator is an application with functionalities for essential & often used calculation tasks. It is built on WPF framework using ASP.NET Core.
+General Calculator is an application with functionalities for essential & often used calculation tasks. Initially, the application was built using .NET Framework on June 10, 2019. Later, it was migrated to .NET Core.
 
 Available calculation tasks are:
 
